@@ -24,5 +24,7 @@ public class TestaListaDeAula {
 		Collections.sort(aulas, Comparator.comparing(Aula::getTempo));
 		
 		System.out.println(aulas);
+		//ordenando com Java 8, sem o uso da Collections
+		aulas.sort(Comparator.comparing(Aula::getTempo));
 	}
 }
