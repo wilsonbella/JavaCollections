@@ -1,5 +1,8 @@
 package br.com.alura;
 
+import java.util.Iterator;
+import java.util.Set;
+
 public class TestaCursoComAluno {
 	public static void main(String[] args) {
 
@@ -19,22 +22,30 @@ public class TestaCursoComAluno {
 		javaColecoes.matricula(a3);
 		javaColecoes.matricula(a4);
 		System.out.println("Todos os alunos matriculados: ");
-		javaColecoes.getAlunos().forEach(a -> {
-			System.out.println(a);
 
-		});
+		Set<Aluno> alunos = javaColecoes.getAlunos();
+		Iterator<Aluno> iterador = alunos.iterator();
+
+		while (iterador.hasNext()) {
+			Aluno proximo = iterador.next();
+			System.out.println(proximo);
+		}
+
+//		javaColecoes.getAlunos().forEach(a -> {
+//			System.out.println(a);
+
+		// });
 		System.out.println("O aluno " + a1 + "está matriculado?");
 		System.out.println(javaColecoes.estaMatriculado(a4));
 
-		
-			Aluno pedro = new Aluno("Pedro alves", 2541);
-			System.out.println("E esse Pedro está matriculado?");
-			System.out.println(javaColecoes.estaMatriculado(pedro));
-			
-			System.out.println("O a1 equals pedro?");
-			System.out.println(a1.equals(pedro)); 
-			//obrigatóriamente o seguinte é true:
-			System.out.println(a1.hashCode()==pedro.hashCode());
+		Aluno pedro = new Aluno("Pedro alves", 2541);
+		System.out.println("E esse Pedro está matriculado?");
+		System.out.println(javaColecoes.estaMatriculado(pedro));
+
+		System.out.println("O a1 equals pedro?");
+		System.out.println(a1.equals(pedro));
+		// obrigatóriamente o seguinte é true:
+		System.out.println(a1.hashCode() == pedro.hashCode());
 	}
 
 }
